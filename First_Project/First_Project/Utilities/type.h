@@ -11,7 +11,4 @@
 
 typedef unsigned char uint8_t;
 
-
-
-
 #endif /* TYPE_H_ */

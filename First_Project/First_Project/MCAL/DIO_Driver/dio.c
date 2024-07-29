@@ -6,7 +6,7 @@
  */ 
 
 #include "DIO.h"
-#include "../Utilities/type.h"
+
 
 void DIO_init(uint8_t portNumber,uint8_t pinNumber,uint8_t direction)
 {
@@ -114,5 +114,30 @@ void DIO_write(uint8_t portNumber,uint8_t pinNumber,uint8_t value)//write data t
 		break;
 	}
 }
-void DIO_toggle(uint8_t portNumber,uint8_t pinNumber);// toggle dio
-uint8_t DIO_read(uint8_t portNumber,uint8_t pinNumber,uint8_t* value );//read dio
+void DIO_toggle(uint8_t portNumber,uint8_t pinNumber)// toggle dio
+{
+	switch(portNumber)
+	{
+		//for port A
+		case(PORT_A):
+		PORTA ^= (1<<pinNumber);
+		break;
+		//for port B
+		case(PORT_B):
+		PORTB ^= (1<<pinNumber);
+		break;
+		//for port C
+		case(PORT_C):
+		PORTC ^= (1<<pinNumber);
+		break;
+		//for port D
+		case(PORT_D):
+		PORTD ^= (1<<pinNumber);
+		break;
+	}
+}
+uint8_t DIO_read(uint8_t portNumber,uint8_t pinNumber,uint8_t* value )//read dio
+{
+	
+}
+

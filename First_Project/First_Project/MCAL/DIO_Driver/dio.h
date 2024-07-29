@@ -9,7 +9,8 @@
 #ifndef DIO_H_
 #define DIO_H_
 
-#include "../Utilities/registers.h"
+#include "../../Utilities/registers.h"
+#include "../../Utilities/type.h"
 
 #define PORT_A 'A'
 #define PORT_B 'B'
@@ -17,8 +18,8 @@
 #define PORT_D 'D'
 
 //direction defines
-#define IN 1
-#define OUT 0
+#define IN 0
+#define OUT 1
 
 //values defines
 #define HIGH 1

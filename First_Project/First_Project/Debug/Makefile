@@ -33,14 +33,18 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../DIO_Driver \
+../ECUAL/LED_Driver \
+../MCAL \
+../MCAL/DIO_Driver/ \
+../ECUAL \
 ../Utilities
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../DIO_Driver/dio.c \
-../main.c
+../ECUAL/LED_Driver/led.c \
+../main.c \
+../MCAL/DIO_Driver/dio.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,20 +54,24 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-DIO_Driver/dio.o \
-main.o
+ECUAL/LED_Driver/led.o \
+main.o \
+MCAL/DIO_Driver/dio.o
 
 OBJS_AS_ARGS +=  \
-DIO_Driver/dio.o \
-main.o
+ECUAL/LED_Driver/led.o \
+main.o \
+MCAL/DIO_Driver/dio.o
 
 C_DEPS +=  \
-DIO_Driver/dio.d \
-main.d
+ECUAL/LED_Driver/led.d \
+main.d \
+MCAL/DIO_Driver/dio.d
 
 C_DEPS_AS_ARGS +=  \
-DIO_Driver/dio.d \
-main.d
+ECUAL/LED_Driver/led.d \
+main.d \
+MCAL/DIO_Driver/dio.d
 
 OUTPUT_FILE_PATH +=First_Porject.elf
 
@@ -79,7 +87,7 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-DIO_Driver/dio.o: ../DIO_Driver/dio.c
+ECUAL/LED_Driver/led.o: ../ECUAL/LED_Driver/led.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -87,6 +95,13 @@ DIO_Driver/dio.o: ../DIO_Driver/dio.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/DIO_Driver/dio.o: ../MCAL/DIO_Driver/dio.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

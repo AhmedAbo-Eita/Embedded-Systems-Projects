@@ -133,13 +133,19 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DIO_Driver\dio.c">
+    <Compile Include="ECUAL\LED_Driver\led.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="DIO_Driver\dio.h">
+    <Compile Include="ECUAL\LED_Driver\led.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO_Driver\dio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO_Driver\dio.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Utilities\registers.h">
@@ -150,7 +156,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DIO_Driver" />
+    <Folder Include="ECUAL\LED_Driver" />
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\DIO_Driver\" />
+    <Folder Include="ECUAL" />
     <Folder Include="Utilities" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
